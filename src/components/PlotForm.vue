@@ -180,7 +180,7 @@
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-200"
               >Add Data Points</label
             >
-            <div class="flex gap-3">
+            <div class="flex flex-wrap gap-3">
               <input
                 type="text"
                 v-model="newLabel"
@@ -209,7 +209,7 @@
               <li
                 v-for="(point, index) in dataPoints"
                 :key="index"
-                class="flex items-center justify-between px-4 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200"
+                class="flex flex-col sm:flex-row items-center justify-between px-4 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200"
               >
                 <!-- Mode affichage -->
                 <template v-if="editingIndex !== index">
@@ -248,7 +248,7 @@
 
                 <!-- Mode édition -->
                 <template v-else>
-                  <div class="flex-1 flex items-center gap-2">
+                  <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 items-center w-full">
                     <input
                       type="text"
                       v-model="editLabel"
@@ -257,10 +257,10 @@
                     <input
                       type="number"
                       v-model="editValue"
-                      class="w-24 px-2 py-1 rounded border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                      class="w-full sm:w-32 px-2 py-1 rounded border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                     />
                   </div>
-                  <div class="flex items-center gap-2">
+                  <div class="flex gap-2 sm:gap-3 items-center">
                     <button
                       @click="saveEdit"
                       class="text-green-500 hover:text-green-600 transition-colors duration-200"
